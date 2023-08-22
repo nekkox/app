@@ -9,8 +9,8 @@
                     <div class="ml-10 flex items-baseline space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="/app/" class="<?= urlIs('/app/') ? 'bg-gray-900 text-white' : 'text-gray-300'?>  hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
-                        <a href="contact.php" class="<?= urlIs('/app/contact.php') ? 'bg-gray-900 text-white' : 'text-gray-300'?>  hover:bg-gray-700 hover:text-white'?> rounded-md px-3 py-2 text-sm font-medium">Contact</a>
-                        <a href="about.php" class="<?= urlIs('/app/about.php') ? 'bg-gray-900 text-white' : 'text-gray-300'?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
+                        <a href="contact" class="<?= urlIs('/app/contact') ? 'bg-gray-900 text-white' : 'text-gray-300'?>  hover:bg-gray-700 hover:text-white'?> rounded-md px-3 py-2 text-sm font-medium">Contact</a>
+                        <a href="about" class="<?= urlIs('/app/about') ? 'bg-gray-900 text-white' : 'text-gray-300'?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
                     </div>
                 </div>
             </div>
