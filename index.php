@@ -1,6 +1,6 @@
 <?php
 require "functions.php";
-$heading = "Hello World";
+$heading = "Home Page";
 
 
 

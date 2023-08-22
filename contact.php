@@ -1,5 +1,5 @@
 <?php
 require "functions.php";
-$heading = "Hello World";
+$heading = "Contact Page";
 
 require "views/contact.view.php";
