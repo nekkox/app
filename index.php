@@ -2,4 +2,4 @@
 
 $heading = "Hello World";
 
-require "index.view.php";
+require "views/index.view.php";
