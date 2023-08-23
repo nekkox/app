@@ -2,19 +2,24 @@
 require "functions.php";
 require "router.php";
 
-// Connect to the MySQL database.
-$dsn = "mysql:host=localhost;port=3306;dbname=app;user=root;charset=utf8mb4";
 
-// Tip: This should be wrapped in a try-catch. We'll learn how, soon.
-$pdo = new PDO($dsn);
+class Database{
 
-$statement = $pdo->prepare("select * from posts");
-$statement->execute();
+    public function query(){
 
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+        // Connect to the MySQL database.
+        $dsn = "mysql:host=localhost;port=3306;dbname=app;user=root;charset=utf8mb4";
 
-foreach ($posts as $post) {
-    echo "<li>" . $post['title'] . "</li>";
+        // Tip: This should be wrapped in a try-catch.
+        $pdo = new PDO($dsn);
+
+        $statement = $pdo->prepare("select * from posts");
+        $statement->execute();
+
+        $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $posts;
+    }
 }
 
-dd($posts);
+$db = new Database();
+dd($db->query());
