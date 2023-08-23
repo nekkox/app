@@ -5,6 +5,11 @@ require "Database.php";
 
 $config = require('config.php');
 $db = new Database($config['database']);
-$posts = $db->query("SELECT * FROM posts")->fetchAll();
+$id = filter_input(INPUT_GET,'id',FILTER_VALIDATE_INT);
 
-dd($posts);
+if($id){
+    $query = "select * from posts where PostId = :id";
+
+    $posts = $db->query($query, [':id' => $id])->fetch();
+    dd($posts);
+}

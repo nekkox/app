@@ -4,7 +4,7 @@
 function dd($value){
     echo '<pr>';
     var_dump($value);
-    echo 'pre';
+    echo '<pre>';
 
     die();
 }
