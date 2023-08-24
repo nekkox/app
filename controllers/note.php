@@ -1,5 +1,5 @@
 <?php
-$heading = "Note";
+$heading = "";
 
 $config = require('config.php');
 $db = new Database($config['database']);

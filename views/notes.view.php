@@ -15,9 +15,9 @@
                 <?php
                 foreach ($notes as $note):
                     echo '<li>
-                        <a class="hover:underline hover:font-bold text-fuchsia-900" href="note?id='.$note['id'].'">'
-                        .substr($note['body'],0,3).
-                        ' click to see more...</a></li>';
+                        <a class="hover:underline hover:font-semibold text-fuchsia-900" href="note?id='.$note['id'].'">'
+                        .$note['body'].
+                        '</a></li>';
                 endforeach;
                 ?>
             </ul>
