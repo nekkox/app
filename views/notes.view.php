@@ -8,19 +8,23 @@
             <div class="container flex justify-start text-4xl font-bold underline text-gray-900">
                 <h1><?=$heading?></h1>
             </div>
-        </div>
-        <hr>
-        <div class="mx-auto my-3 text-xl flex justify-center">
-            <ul>
-                <?php
-                foreach ($notes as $note):
-                    echo '<li>
+            <br>
+            <hr>
+            <div class="mx-auto mt-8 text-xl ">
+                <ul class="list-disc list-inside">
+                    <?php
+                    foreach ($notes as $note):
+                        echo '<li>
                         <a class="hover:underline hover:font-semibold text-fuchsia-900" href="note?id='.$note['id'].'">'
-                        .$note['body'].
-                        '</a></li>';
-                endforeach;
-                ?>
-            </ul>
+                            .$note['body'].
+                            '</a></li>';
+                    endforeach;
+                    ?>
+                </ul>
+            </div>
+
         </div>
+
+
     </main>
 <?php require "views/partials/footer.php" ?>

@@ -10,7 +10,7 @@
             <a class="text-blue-500 text-xl" href="/app/notes">Back To All Recent Notes...</a>
         </div>
     </div>
-    <div class="w-full flex justify-center">
+    <div class=" w-full flex justify-center">
         <p class="text-xl mt-5 align-middle">
             <?= $note['body'] ?>
 
