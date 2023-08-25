@@ -7,7 +7,9 @@ $db = new Database($config['database']);
 $id = filter_input(INPUT_GET,'id',FILTER_VALIDATE_INT);
 $currentUser = 3;
 
-$note = $db->query('SELECT * FROM notes WHERE id = :id',[':id'=> $id])->fetch();
+$note = $db->query('SELECT * FROM notes WHERE id = :id',[':id'=> $id]);
+$note = $note->find();
+
 
 // If there is no note with such id then 404 page
 if(!$note){
