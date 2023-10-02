@@ -1,8 +1,10 @@
 <?php
 require "Response.php";
+require "linkCrawler.php";
 require "Database.php";
 require "functions.php";
 require "router.php";
+
 
 
 

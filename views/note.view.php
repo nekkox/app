@@ -16,5 +16,10 @@
 
         </p>
     </div>
+    <hr>
+    <br>
+    <h2 class="font-semibold flex justify-center text-fuchsia-900 text-2xl">Fibonacci Numbers: </h2>
+
+
 </main>
 <?php require "views/partials/footer.php" ?>

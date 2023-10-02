@@ -3,7 +3,7 @@
 class Database
 {
     public $connection;
-    public $statement;
+    protected $statement;
 
     public function __construct($config, $username = 'root', $password = '')
     {
@@ -23,12 +23,23 @@ class Database
         return $this;
     }
 
-    public function find(){
+    public function find()
+    {
         return $this->statement->fetch();
     }
 
-    public function findAll(){
+    public function findAll()
+    {
         return $this->statement->fetchAll();
+    }
+
+    public function findOrFail()
+    {
+        $result = $this->find();
+        if (!$result) {
+            abort(Response::NOT_FOUND);
+        }
+        return $result;
     }
 
 }
