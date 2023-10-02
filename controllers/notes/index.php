@@ -1,7 +1,8 @@
 <?php
-$heading = "Recent Notes:";
+//$heading = "Recent Notes:";
 
-$config = require('config.php');
+$config = require base_path('config.php');
+
 $db = new Database($config['database']);
 
 $id = 3;
@@ -10,4 +11,4 @@ $notes = $db->query('SELECT * FROM notes WHERE user_id = 4');
 $notes = $notes->findAll();
 
 
-require "views/notes.view.php";
+view("notes/index.view.php", ['heading' => "My Notes", 'notes' => $notes]);

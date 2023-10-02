@@ -1,6 +1,6 @@
-<?php require "views/partials/head.php" ?>
-<?php require "views/partials/nav.php" ?>
-<?php require "views/partials/banner.php" ?>
+<?php require base_path("views/partials/head.php") ?>
+<?php require base_path("views/partials/nav.php") ?>
+<?php require base_path("views/partials/banner.php") ?>
 
 
     <main>
@@ -24,9 +24,9 @@
             </div>
             <br>
                 <p class="mt-5">
-                    <a class="hover:underline text-2xl text-gray-900 font-bold" href="/app/note/create">Create a Note</a>
+                    <a class="hover:underline text-2xl text-gray-900 font-bold" href="/note/create">Create a Note</a>
                 </p>
 
         </div>
     </main>
-<?php require "views/partials/footer.php" ?>
+<?php require base_path("views/partials/footer.php") ?>

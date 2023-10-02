@@ -1,7 +1,7 @@
 <?php
-$heading = "";
+//$heading = "";
 
-$config = require('config.php');
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
 $id = filter_input(INPUT_GET,'id',FILTER_VALIDATE_INT);
@@ -23,4 +23,4 @@ authorize($note['user_id'] === $currentUser);
     abort(Response::FORBIDDEN);
 }*/
 
-require "views/note.view.php";
+view("notes/show.view.php", ['heading' => "...", 'note' => $note ]);
