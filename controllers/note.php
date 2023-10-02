@@ -5,7 +5,7 @@ $config = require('config.php');
 $db = new Database($config['database']);
 
 $id = filter_input(INPUT_GET,'id',FILTER_VALIDATE_INT);
-$currentUser = 3;
+$currentUser = 4;
 
 
 $note = $db->query('SELECT * FROM notes WHERE id = :id',[':id'=> $id])->findOrFail();

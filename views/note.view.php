@@ -12,7 +12,7 @@
     </div>
     <div class=" w-full flex justify-center">
         <p class="text-xl mt-5 align-middle">
-            <?= $note['body'] ?>
+            <?= htmlspecialchars(strip_tags($note['body'])) ?>
 
         </p>
     </div>

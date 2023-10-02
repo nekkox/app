@@ -16,7 +16,7 @@
                     foreach ($notes as $note):
                         echo '<li>
                         <a class="hover:underline hover:font-semibold text-fuchsia-900" href="note?id=' . $note['id'] . '">'
-                            . $note['body'] .
+                            . htmlspecialchars(strip_tags($note['body']))  .
                             '</a></li>';
                     endforeach;
                     ?>
