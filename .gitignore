@@ -1,5 +1,5 @@
 .idea/
 source2.txt
 source3.txt
-/node_modules
+node_modules/
 linkCrawler.php
