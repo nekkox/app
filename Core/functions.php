@@ -1,4 +1,5 @@
 <?php
+use Core\Response;
 
 //dump and die function
 function dd($value)
@@ -41,12 +42,10 @@ function rightHeading()
 
 function authorize($condition, $status = Response::FORBIDDEN)
 {
-
     if (!$condition) {
         abort($status);
 
     }
-
 }
 
 
@@ -82,5 +81,5 @@ function base_path($path)
 function view($path, $attributes = [])
 {
     extract($attributes);
-   require base_path('views/' . $path);
+    require base_path('views/' . $path);
 }
