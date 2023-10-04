@@ -11,14 +11,15 @@
         </div>
     </div>
     <div class=" w-full flex justify-center">
-        <p class="text-xl mt-5 align-middle">
-            <?= htmlspecialchars(strip_tags($note['body'])) ?>
-
-        </p>
+        <p class="text-xl mt-5 align-middle"><?= htmlspecialchars(strip_tags($note['body'])) ?></p>
     </div>
     <hr>
     <br>
-    <h2 class="font-semibold flex justify-center text-fuchsia-900 text-2xl">Fibonacci Numbers: </h2>
+    <form class="ml-36" method="POST">
+        <input type="hidden" name="id" value="<?= $note['id'] ?>">
+        <button class="py-2 px-4  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">Delete</button>
+    </form>
+
 
 
 </main>

@@ -1,26 +1,37 @@
 <?php
+
 use Core\Database;
 
 $config = require base_path('config.php');
 $db = new Database($config['database']);
 
-$id = filter_input(INPUT_GET,'id',FILTER_VALIDATE_INT);
-$currentUser = 4;
+$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+$currentUserId = 1;
 
 
-$note = $db->query('SELECT * FROM notes WHERE id = :id',[':id'=> $id])->findOrFail();
-//$note = $note->find();
+// Its going to be refactored
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $note = $db->query('select * from notes where id = :id', [
+        'id' => $_GET['id']
+    ])->findOrFail();
 
-authorize($note['user_id'] === $currentUser);
+    authorize($note['user_id'] === $currentUserId);
 
-// If there is no note with such id then 404 page
-/*if(!$note){
-    abort(Response::NOT_FOUND);
-}*/
+    $db->query('delete from notes where id = :id', [
+        'id' => $_GET['id']
+    ]);
 
-//If there is a note with such id but the user is not its author then 403 page
-/*if($note['user_id'] !== $currentUser ){
-    abort(Response::FORBIDDEN);
-}*/
+    header('location: /notes');
+    exit();
+} else {
+    $note = $db->query('select * from notes where id = :id', [
+        'id' => $_GET['id']
+    ])->findOrFail();
 
-view("notes/show.view.php", ['heading' => "...", 'note' => $note ]);
+    authorize($note['user_id'] === $currentUserId);
+
+    view("notes/show.view.php", [
+        'heading' => "...",
+        'note' => $note
+    ]);
+}
