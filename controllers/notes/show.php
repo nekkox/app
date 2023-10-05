@@ -8,12 +8,15 @@ $db = new Database($config['database']);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $currentUserId = 1;
 
+var_dump($_GET);
 
 // Its going to be refactored
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $note = $db->query('select * from notes where id = :id', [
         'id' => $_GET['id']
     ])->findOrFail();
+
+    $_GET['xxxx']='ppp';
 
     authorize($note['user_id'] === $currentUserId);
 

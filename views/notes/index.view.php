@@ -15,7 +15,7 @@
                     <?php
                     foreach ($notes as $note):
                         echo '<li>
-                        <a class="hover:underline hover:font-semibold text-fuchsia-900" href="note?id=' . $note['id'] . '">'
+                        <a class="hover:underline hover:font-semibold text-fuchsia-900" href="/note?id=' . $note['id'] . '">'
                             . htmlspecialchars(strip_tags($note['body']))  .
                             '</a></li>';
                     endforeach;
@@ -24,7 +24,7 @@
             </div>
             <br>
                 <p class="mt-5">
-                    <a class="hover:underline text-2xl text-gray-900 font-bold" href="/note/create">Create a Note</a>
+                    <a class="hover:underline text-2xl text-gray-900 font-bold" href="/notes/create">Create a Note</a>
                 </p>
 
         </div>
