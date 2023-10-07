@@ -2,6 +2,10 @@
 
 namespace Core;
 
+use Core\Middleware\Authenticated;
+use Core\Middleware\Guest;
+use Core\Middleware\Middleware;
+
 class Router
 {
     protected $routes = [];
@@ -12,43 +16,54 @@ class Router
     $uri: The URI pattern to match for the route.
     $controller: The controller that should handle the request for this route. */
 
-    public function add(string $method, string $uri, string $controller): void
+    public function add(string $method, string $uri, string $controller): self
     {
         $this->routes[] = [
             'uri' => $uri,
             'controller' => $controller,
-            'method' => $method
+            'method' => $method,
+            'middleware' => null
         ];
+
+        return $this;
+
     }
 
     #Add a new GET request route to the router.
-    public function get(string $uri, string $controller): void
+    public function get(string $uri, string $controller): self
     {
-        $this->add('GET', $uri, $controller);
+       return $this->add('GET', $uri, $controller);
     }
 
     #Add a new POST request route to the router.
-    public function post(string $uri, string $controller): void
+    public function post(string $uri, string $controller): self
     {
-        $this->add('POST', $uri, $controller);
+       return $this->add('POST', $uri, $controller);
     }
 
     #Add a new DELETE request route to the router.
-    public function delete(string $uri, string $controller): void
+    public function delete(string $uri, string $controller): self
     {
-        $this->add('DELETE', $uri, $controller);
+        return $this->add('DELETE', $uri, $controller);
     }
 
     #Add a new PATCH request route to the router.
-    public function patch(string $uri, string $controller): void
+    public function patch(string $uri, string $controller): self
     {
-        $this->add('PATCH', $uri, $controller);
+        return $this->add('PATCH', $uri, $controller);
     }
 
     #Add a new PUT request route to the router.
-    public function put(string $uri, string $controller): void
+    public function put(string $uri, string $controller): self
     {
-        $this->add('PUT', $uri, $controller);
+        return  $this->add('PUT', $uri, $controller);
+    }
+
+    public function only($key)
+    {
+        $this->routes[array_key_last($this->routes)]['middleware'] = $key;
+
+        return $this;
     }
 
 
@@ -63,6 +78,8 @@ class Router
     {
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
+                Middleware::resolve($route['middleware']);
+
                 return require base_path($route['controller']);
             }
         }
